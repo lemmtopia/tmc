@@ -1,4 +1,5 @@
 # build artifacts
+*.Identifier
 src/*.s
 build/
 cmake-build-*

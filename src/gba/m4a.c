@@ -800,7 +800,7 @@ void MPlayOpen(MusicPlayerInfo* mplayInfo, MusicPlayerTrack* tracks, u8 trackCou
     }
 
     soundInfo->intp = mplayInfo;
-    soundInfo->MPlayMainHead = MPlayMain;
+    soundInfo->MPlayMainHead = (void (*)(MusicPlayerInfo *))MPlayMain;
     soundInfo->ident = ID_NUMBER;
     mplayInfo->ident = ID_NUMBER;
 }
