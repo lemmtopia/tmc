@@ -85,9 +85,10 @@ void UpdatePlayerInput(void) {
         if (playerInput->playerMacroWaiting == 0) { // Execute next macro entry.
             do {
                 flags = playerMacro->flags >> 0xe;
-                if (flags == 1) // PLAYER_MACRO_JUMPTO
-                    (u8*)playerMacro += ((s16)playerMacro->keys);
-                else {
+                if (flags == 1) {// PLAYER_MACRO_JUMPTO
+                	u8* playerMacro_u8ptr = (u8*)playerMacro;
+                    playerMacro_u8ptr += ((s16)playerMacro->keys);
+                } else {
                     if (flags == 3) { // PLAYER_MACRO_END
                         playerInput->playerMacroWaiting = 0;
                         playerInput->playerMacroHeldKeys = 0;

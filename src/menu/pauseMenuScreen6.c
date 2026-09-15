@@ -22,6 +22,9 @@ typedef struct {
     u16 unk6;
 } struct_sub_080A698C;
 
+
+s32 sub_080A69E0_2(u32 param_1, u32 param_2);
+
 extern u8 gUnk_08128E80[];
 
 extern u16 gUnk_02017AA0[];
@@ -216,7 +219,7 @@ void sub_080A68D4(void) {
 void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
     int iVar1;
 
-    iVar1 = sub_080A69E0(param_1, param_2);
+    iVar1 = sub_080A69E0_2(param_1, param_2);
     if (iVar1 > 0) {
         ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk0 = param_4 >> 8;
         ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk1 = param_4;
@@ -227,7 +230,7 @@ void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
     }
 }
 
-s32 sub_080A69E0(u32 param_1, u32 param_2) {
+s32 sub_080A69E0_2(u32 param_1, u32 param_2) {
     const OverworldLocation* location;
     int iVar3;
 

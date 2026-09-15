@@ -33,24 +33,26 @@ void sub_080A4BA0(u32, u32);
 void sub_080A4DB8(u32);
 
 const KeyButtonLayout gUnk_0812813C = {
-    0xffu,
-    0xd8u,
-    0u,
-    0xd0u,
-    0x10u,
-    0xeu,
-    0xffu,
-    0xd8u,
-    0u,
+    0xff,
+    0xd8,
+    0,
+    0xd0,
+    0x10,
+    0xe,
+    0xff,
+    0xd8,
+    0,
+    {}
+    /*
     {
-        0xau,
-        0u,
-        0x1u,
-        0x1u,
-        0xffu,
-        0u,
-        0u,
-    },
+        0xa,
+        0
+        0x1,
+        0x1,
+        0xff,
+        0,
+        0,
+    },*/
 };
 
 extern u8 gUnk_020344A0[8];
@@ -498,7 +500,7 @@ void sub_080A4BA0(u32 arg1, u32 arg2) {
             s2.unk9 = r5;
             s0.unk0 += 0xb;
             if (gSaveHeader->language == 0) {
-                ShowTextBox((u32)&s2, &s0);
+                ShowTextBox(*(u32*)&s2, &s0);
             } else {
                 ShowTextBox(r5, &s0);
             }
