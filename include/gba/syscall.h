@@ -13,8 +13,17 @@
 #define RESET_REGS 0x80
 #define RESET_ALL 0xFF
 
+#if 0
+
 #define SystemCall(x) \
     { asm("svc " #x); }
+
+#else
+
+#include <sys/syscall.h>
+#include <unistd.h>
+#define SystemCall(x) syscall(x)
+#endif
 
 extern void SoundBiasReset();
 extern void SoundBiasSet();

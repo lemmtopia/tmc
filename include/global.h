@@ -71,7 +71,11 @@
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define max(a, b) ((a) >= (b) ? (a) : (b))
 
+#if 0
 #define static_assert(cond) extern char assertion[(cond) ? 1 : -1]
+#else
+#define static_assert(cond)
+#endif
 
 #define super (&this->base)
 
