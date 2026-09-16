@@ -316,7 +316,7 @@ void EnemyDetachFX(Entity* entity) {
 }
 
 /** Unsets bitfield 0x80 before calling GetNextFunction, so that the enemyFunction 1 is not called. */
-void EnemyFunctionHandlerAfterCollision(Entity* entity, void (*const fntable[])()) {
+void EnemyFunctionHandlerAfterCollision(Entity* entity, void (*const fntable[])(Entity* e)) {
     u32 idx;
     entity->contactFlags &= ~CONTACT_NOW;
     idx = GetNextFunction(entity);

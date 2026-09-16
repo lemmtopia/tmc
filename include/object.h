@@ -220,6 +220,7 @@ void sub_0808C650(Entity*, u32);
 u32 sub_0808C67C(void);
 void sub_0808C688(void);
 
+/*
 void ItemOnGround();
 void DeathFx();
 void ItemForSale();
@@ -414,6 +415,7 @@ void Pinwheel();
 void ObjectBF();
 void EnemyItem();
 void LinkAnimation();
+*/
 
 extern void (*const gObjectFunctions[194])(Entity*);
 

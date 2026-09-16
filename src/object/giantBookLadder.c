@@ -18,10 +18,18 @@ typedef struct {
     u16 unk76;
 } GiantBookLadderEntity;
 
+static Entity* en_this = NULL;
+
 void GiantBookLadder_OnEnterRoom(GiantBookLadderEntity*);
 u32 sub_0808E670(GiantBookLadderEntity*);
 
+void GiantBookLadder_OnEnterRoom_2() {
+	GiantBookLadder_OnEnterRoom((GiantBookLadderEntity*)en_this);
+}
+
 void GiantBookLadder(Entity* this) {
+	en_this = this;
+
     static const u8 spriteDefs[] = {
         3, 7, 3, 7, 3, 6, 0, 0,
     };
@@ -35,8 +43,8 @@ void GiantBookLadder(Entity* this) {
         this->spritePriority.b0 = spriteDefPtr[1];
         ((GiantBookLadderEntity*)this)->unk76 = 0;
         ((GiantBookLadderEntity*)this)->unk74 = COORD_TO_TILE(this);
-        GiantBookLadder_OnEnterRoom((GiantBookLadderEntity*)this);
-        RegisterTransitionHandler(this, GiantBookLadder_OnEnterRoom, NULL);
+        GiantBookLadder_OnEnterRoom_2();
+        RegisterTransitionHandler(this, GiantBookLadder_OnEnterRoom_2, NULL);
     } else if ((this->type & 1) == 0) {
         sub_0808E670((GiantBookLadderEntity*)this);
     }

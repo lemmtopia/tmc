@@ -553,7 +553,8 @@ void MPlayExtender(CgbChannel* cgbChans) {
 }
 
 void MusicPlayerJumpTableCopy(void) {
-    asm("swi 0x2A");
+	SystemCall(0x2A);
+    //asm("swi 0x2A");
 }
 
 void ClearChain(void* x) {
@@ -1290,7 +1291,7 @@ void CgbSound(void) {
         if (channels->modify & CGB_CHANNEL_MO_PIT) {
             if (ch < 4 && (channels->type & TONEDATA_TYPE_FIX)) {
                 int dac_pwm_rate = REG_SOUNDBIAS_H;
-                asm("" ::: "r0");
+                asm("" ::: "rax");
                 if (dac_pwm_rate < 0x40) // if PWM rate = 32768 Hz
                     channels->frequency = (channels->frequency + 2) & 0x7fc;
                 else if (dac_pwm_rate < 0x80) // if PWM rate = 65536 Hz
@@ -1584,7 +1585,7 @@ void ply_memacc(MusicPlayerInfo* mplayInfo, MusicPlayerTrack* track) {
 
 cond_true : {
     // *& is required for matching
-    ((MPlayFunc)(*&gMPlayJumpTable[1]))(mplayInfo, track);
+    //((MPlayFunc)(*&gMPlayJumpTable[1]))(mplayInfo, track);
     return;
 }
 
@@ -1600,7 +1601,7 @@ void ply_xcmd(MusicPlayerInfo* mplayInfo, MusicPlayerTrack* track) {
 }
 
 void ply_xxx(MusicPlayerInfo* mplayInfo, MusicPlayerTrack* track) {
-    ((MPlayFunc)(gMPlayJumpTable[0]))(mplayInfo, track);
+    //((MPlayFunc)(gMPlayJumpTable[0]))(mplayInfo, track);
 }
 
 #define READ_XCMD_BYTE(var, n)         \

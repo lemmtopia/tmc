@@ -227,7 +227,7 @@ void CallRoomProp5And7(void);
 void LoadRoom(void);
 void SetCurrentRoomPropertyList(u32 area, u32 room);
 void* GetCurrentRoomProperty(u32);
-void LoadRoomTileEntities();
+void LoadRoomTileEntities(TileEntity* list);
 Entity* LoadRoomEntity(const EntityData*);
 void LoadRoomEntityList(const EntityData* listPtr);
 void* GetRoomProperty(u32 area, u32 room, u32 property);

@@ -3,6 +3,7 @@ CC=gcc
 #CFLAGS=-O2 -Wimplicit -Wparentheses -Werror -Wno-multichar -g3
 CFLAGS=-O2 -g3
 IFLAGS=-I.. -I../include -I../build/USA
+DEFS=-DUSA -DNON_MATCHING
 
 OBJS =	\
 	./code_08049DF4.o \
@@ -629,4 +630,7 @@ tmc: $(OBJS)
 	$(CC) $(OBJS) -o tmc
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(IFLAGS)
+	$(CC) $(CFLAGS) -c $< -o $@ $(IFLAGS) $(DEFS)
+
+clean:
+	rm $(OBJS) tmc
